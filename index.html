@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantID – Modern Agriculture + AI</title>
+    <!-- Google Fonts: Outfit for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- HEADER & NAVBAR -->
+    <header class="navbar-wrapper">
+        <div class="navbar-container">
+            <a href="#" class="logo">
+                <span class="logo-emoji">🌱</span>
+                <span class="logo-text">Plant<span class="logo-accent">ID</span></span>
+            </a>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#identifikasi" class="nav-link">Identifikasi</a>
+                <a href="#informasi" class="nav-link">Informasi</a>
+                <a href="#tentang" class="nav-link">Tentang</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">⚡ Agriculture AI Technology</span>
+                    <h1 class="hero-title">Kenali Tanaman dari Foto dengan AI</h1>
+                    <p class="hero-description">
+                        Optimalkan hasil panen Anda dengan deteksi penyakit tanaman secara instan menggunakan teknologi kecerdasan buatan. Unggah foto daun tanaman Anda dan dapatkan analisis kesehatan serta rekomendasi penanganan dalam hitungan detik.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#identifikasi" class="btn btn-primary">Mulai Identifikasi</a>
+                        <a href="#informasi" class="btn btn-secondary">Pelajari Selengkapnya</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card-image">
+                        <img src="hero-bg.jpeg" alt="Smart Agriculture AI" class="hero-img">
+                        <div class="floating-badge badge-1">
+                            <span class="badge-icon">🤖</span>
+                            <span class="badge-text">99.2% Akurasi</span>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <span class="badge-icon">🌿</span>
+                            <span class="badge-text">Deteksi Instan</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARA KERJA SECTION -->
+        <section class="section cara-kerja-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Alur Mudah</span>
+                    <h2 class="section-title">Bagaimana AI Bekerja?</h2>
+                    <p class="section-description">Hanya dengan tiga langkah mudah, Anda bisa mendiagnosis kondisi kesehatan tanaman Anda.</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <!-- Step 1 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrapper">
+                            <span class="step-number">01</span>
+                            <span class="step-emoji">📷</span>
+                        </div>
+                        <h3 class="step-title">Upload Foto</h3>
+                        <p class="step-text">Ambil atau unggah foto daun tanaman yang ingin diidentifikasi melalui perangkat Anda.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrapper">
+                            <span class="step-number">02</span>
+                            <span class="step-emoji">🤖</span>
+                        </div>
+                        <h3 class="step-title">AI Menganalisis</h3>
+                        <p class="step-text">Sistem AI kami akan mengekstrak fitur visual daun dan mencocokkannya dengan database penyakit tanaman.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-card">
+                        <div class="step-icon-wrapper">
+                            <span class="step-number">03</span>
+                            <span class="step-emoji">🌱</span>
+                        </div>
+                        <h3 class="step-title">Lihat Hasil</h3>
+                        <p class="step-text">Dapatkan laporan kesehatan tanaman lengkap dengan rekomendasi pengobatan yang akurat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDENTIFIKASI SECTION (INTERAKTIF) -->
+        <section id="identifikasi" class="section identifikasi-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Uji Gambar</span>
+                    <h2 class="section-title">Identifikasi Tanaman Sekarang</h2>
+                    <p class="section-description">Unggah foto tanaman Anda (Padi, Tomat, atau Cabai) untuk memulai analisis.</p>
+                </div>
+
+                <div class="classifier-container">
+                    <!-- Uploader Side -->
+                    <div class="classifier-box">
+                        <div class="upload-area" id="dropzone">
+                            <input type="file" id="fileInput" accept="image/*" class="file-input-hidden">
+                            <div class="upload-placeholder" id="uploadPlaceholder">
+                                <div class="upload-icon">📤</div>
+                                <h3>Seret & Lepas Foto di Sini</h3>
+                                <p>atau klik untuk menelusuri file dari perangkat Anda</p>
+                                <span class="upload-note">Format gambar: JPG, PNG (Maks. 5MB)</span>
+                            </div>
+                            <div class="preview-container hidden" id="previewContainer">
+                                <img src="" alt="Pratinjau Tanaman" id="imagePreview" class="image-preview">
+                                <button class="btn-remove" id="btnRemove" title="Hapus Gambar">&times;</button>
+                            </div>
+                        </div>
+                        <div class="classifier-actions">
+                            <button class="btn btn-primary btn-block disabled" id="btnAnalyze" disabled>
+                                <span class="btn-text">Analisis Tanaman</span>
+                                <span class="btn-icon">🔍</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output Side -->
+                    <div class="results-box">
+                        <!-- Default Blank State -->
+                        <div class="result-blank" id="resultBlank">
+                            <div class="blank-icon">🌿</div>
+                            <h3>Belum Ada Gambar yang Dianalisis</h3>
+                            <p>Unggah foto tanaman Anda di sisi kiri dan klik "Analisis Tanaman" untuk melihat diagnosis AI di sini.</p>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div class="result-loading hidden" id="resultLoading">
+                            <div class="spinner"></div>
+                            <h3 id="loadingStatus">Membaca gambar daun...</h3>
+                            <p class="loading-subtitle">Kecerdasan Buatan sedang mencocokkan pola piksel.</p>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="progressBar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Success Result State -->
+                        <div class="result-card-output hidden" id="resultOutput">
+                            <div class="result-header">
+                                <span class="result-badge" id="resultConfidence">98% Match</span>
+                                <h3 id="resultPlantName">Padi (Oryza sativa)</h3>
+                            </div>
+                            
+                            <div class="status-indicator-bar" id="resultStatusColor"></div>
+
+                            <div class="result-body">
+                                <div class="info-group">
+                                    <h4 class="info-label">Cara Menanam:</h4>
+                                    <ul class="recommendation-list" id="resultCaraMenanam">
+                                        <li>Memuat panduan menanam...</li>
+                                    </ul>
+                                </div>
+                                <div class="info-group">
+                                    <h4 class="info-label">Waktu Panen:</h4>
+                                    <p class="info-value" id="resultWaktuPanen">Memuat estimasi waktu panen...</p>
+                                </div>
+                                <div class="info-group">
+                                    <h4 class="info-label">Tips Perawatan:</h4>
+                                    <ul class="recommendation-list" id="resultRecommendations">
+                                        <li>Memuat tips perawatan...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="result-footer">
+                                <button class="btn btn-secondary btn-sm" id="btnReset">Identifikasi Gambar Lain</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JENIS TANAMAN SECTION -->
+        <section id="informasi" class="section jenis-tanaman-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">Dukungan Klasifikasi</span>
+                    <h2 class="section-title">Jenis Tanaman yang Dapat Dikenali</h2>
+                    <p class="section-description">Sistem AI dilatih khusus untuk mengenali jenis tanaman pada 3 komoditas pertanian berikut.</p>
+                </div>
+
+                <div class="crops-grid">
+                    <!-- Crop 1: Padi -->
+                    <div class="crop-card">
+                        <div class="crop-img-wrapper">
+                            <img src="Padi.jpg" alt="Padi" class="crop-img">
+                            <div class="crop-badge">🌱 Padi</div>
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Padi</h3>
+                            <p class="crop-description">Komoditas pangan utama. Sistem AI dapat mengenali tanaman padi dari citra visualnya.</p>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Cara Menanam:</span>
+                                <p class="crop-description">Semai benih 15-25 hari, olah lahan sawah, lalu pindah tanam dengan jarak 20x20 cm sambil menjaga genangan air sesuai fase pertumbuhan.</p>
+                            </div>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Waktu Panen:</span>
+                                <p class="crop-description">110-130 hari setelah tanam, saat bulir menguning dan merunduk.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Crop 2: Tomat -->
+                    <div class="crop-card">
+                        <div class="crop-img-wrapper">
+                            <img src="tomat.jpg" alt="Tomat" class="crop-img">
+                            <div class="crop-badge">🍅 Tomat</div>
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Tomat</h3>
+                            <p class="crop-description">Tanaman hortikultura yang umum dibudidayakan. Sistem AI dapat mengenali tanaman tomat dari citra visualnya.</p>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Cara Menanam:</span>
+                                <p class="crop-description">Semai 3-4 minggu, pindah tanam ke lahan/polybag berjarak 50x60 cm, dan pasang ajir penyangga saat tanaman mulai tinggi.</p>
+                            </div>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Waktu Panen:</span>
+                                <p class="crop-description">70-90 hari setelah tanam, saat buah berubah dari hijau ke kuning/merah.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Crop 3: Cabai -->
+                    <div class="crop-card">
+                        <div class="crop-img-wrapper">
+                            <img src="cabai.jpeg" alt="Cabai" class="crop-img">
+                            <div class="crop-badge">🌶️ Cabai</div>
+                        </div>
+                        <div class="crop-info">
+                            <h3 class="crop-name">Cabai</h3>
+                            <p class="crop-description">Komoditas bernilai ekonomi tinggi. Sistem AI dapat mengenali tanaman cabai dari citra visualnya.</p>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Cara Menanam:</span>
+                                <p class="crop-description">Semai 3-4 minggu, pindah tanam ke bedengan bermulsa berjarak 50x60 cm, siram dan pupuk susulan tiap 2 minggu.</p>
+                            </div>
+                            <div class="crop-diseases">
+                                <span class="disease-label">Waktu Panen:</span>
+                                <p class="crop-description">75-90 hari setelah tanam, saat buah berwarna cerah dan mengkilap.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TENTANG SECTION -->
+        <section id="tentang" class="section tentang-section">
+            <div class="container">
+                <div class="tentang-wrapper">
+                    <div class="tentang-info">
+                        <span class="section-subtitle">Visi Kami</span>
+                        <h2 class="section-title">Mendukung Pertanian Berkelanjutan</h2>
+                        <p>
+                            <strong>PlantID</strong> lahir dari visi untuk menjembatani teknologi kecerdasan buatan (AI) dengan dunia pertanian tradisional. Kami percaya bahwa akses cepat terhadap identifikasi jenis tanaman dapat membantu edukasi dan kesejahteraan petani lokal.
+                        </p>
+                        <p>
+                            Proyek klasifikasi citra ini dikembangkan menggunakan Teachable Machine dan terus disempurnakan agar cakupan jenis tanaman dan tingkat akurasi identifikasi semakin meningkat.
+                        </p>
+                        <div class="stats-row">
+                            <div class="stat-item">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">Jenis Tanaman</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">&lt;3s</div>
+                                <div class="stat-label">Waktu Analisis</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-emoji">🌱</span>
+                    <span class="logo-text">Plant<span class="logo-accent">ID</span></span>
+                </a>
+                <p>Platform identifikasi jenis tanaman berbasis kecerdasan buatan (AI) untuk pertanian modern.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Menu Utama</h4>
+                <a href="#home">Home</a>
+                <a href="#identifikasi">Identifikasi AI</a>
+                <a href="#informasi">Katalog Tanaman</a>
+                <a href="#tentang">Tentang Kami</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Teknologi & Fitur</h4>
+                <ul>
+                    <li>Image Classification (Teachable Machine / MobileNet)</li>
+                    <li>Frontend: HTML5, CSS3, ES6 JavaScript</li>
+                    <li>Identifikasi Jenis Tanaman Secara Real-time</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 PlantID - Modern Agriculture + AI. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Library Teachable Machine (wajib dimuat sebelum app.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <!-- Script JavaScript -->
+    <script src="scrip2.js"></script>
+</body>
+
+</html>
